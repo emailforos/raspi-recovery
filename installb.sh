@@ -1,6 +1,8 @@
 #!/bin/sh
 echo "\n*** Instalando docker ***\n"
-sudo apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+# https://docs.docker.com/engine/install/debian/#install-using-the-repository
+sudo apt-get update -y
+sudo apt-get install -y ca-certificates curl
 sudo curl -fsSL get.docker.com | sh
 echo "\n*** Instalando docker-compose ***\n"
 sudo apt-get update sudo apt-get install -y docker-compose
