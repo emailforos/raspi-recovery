@@ -39,7 +39,18 @@ touch $HOME/docker/filebrowser/filebrowser.db
 # sudo cp *.* /etc/nut
 echo "\n*** Creando contenedores ***\n"
 echo "\n*** Descargando imagenes nuevas ***\n" 
-docker-compose pull echo "\n*** Instalando imagenes nuevas ***\n" && docker-compose up -d echo "\n*** Borrando imagenes viejas ***\n" && docker image prune -a -f
+docker-compose pull 
+echo "\n*** Instalando imagenes nuevas ***\n"
+cd $HOME/docker/compose/sistema
+docker-compose up -d
+cd $HOME/docker/compose/domotica
+docker-compose up -d
+cd $HOME/docker/compose/media
+docker-compose up -d
+cd $HOME/docker/compose/nube
+docker-compose up -d
+echo "\n*** Borrando imagenes viejas ***\n" 
+docker image prune -a -f
 echo "\n*** Instalando samba ***\n"
 sudo apt update && sudo apt install samba samba-common -y
 sudo wget -O /etc/samba/smb.conf https://raw.githubusercontent.com/emailforos/raspi-recovery/main/samba/smb.conf
