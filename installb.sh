@@ -23,7 +23,6 @@ wget -O $HOME/docker/dir.sh https://raw.githubusercontent.com/emailforos/raspi-r
 sh ./dir.sh
 sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
-git init
 git clone https://github.com/emailforos/contenedores.git
 echo "\n*** Creando ficheros para filebrowser ***\n"
 wget -O $HOME/docker/filebrowser/.filebrowser.json https://raw.githubusercontent.com/filebrowser/filebrowser/master/docker/root/defaults/settings.json
