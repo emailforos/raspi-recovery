@@ -19,13 +19,12 @@ sudo usermod -aG docker ${USER}
 docker-compose --version
 echo "\n*** Creando carpetas para los contenedores ***\n"
 cd $HOME/docker
-git init
-git clone https://github.com/emailforos/dir.sh
+wget -O $HOME/docker/dir.sh https://raw.githubusercontent.com/emailforos/raspi-recovery/main/dir.sh
 sh ./dir.sh
 sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
 git init
-git clone https://github.com/emailforos/contenedores
+git clone https://github.com/emailforos/contenedores.git
 echo "\n*** Creando ficheros para filebrowser ***\n"
 wget -O $HOME/docker/filebrowser/.filebrowser.json https://raw.githubusercontent.com/filebrowser/filebrowser/master/docker/root/defaults/settings.json
 touch $HOME/docker/filebrowser/filebrowser.db
