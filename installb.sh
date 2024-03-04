@@ -18,8 +18,8 @@ sudo groupadd docker
 sudo usermod -aG docker ${USER}
 docker-compose --version
 echo "\n*** Creando carpetas para los contenedores ***\n"
-cd $HOME/docker
-wget -O $HOME/docker/dir.sh https://raw.githubusercontent.com/emailforos/raspi-recovery/main/dir.sh
+cd $HOME
+wget -O $HOME/dir.sh https://raw.githubusercontent.com/emailforos/raspi-recovery/main/dir.sh
 sh ./dir.sh
 sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
