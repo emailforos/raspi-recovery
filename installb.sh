@@ -20,7 +20,7 @@ docker compose --version
 echo "\n*** Creando carpetas para los contenedores ***\n"
 cd $HOME
 wget -O $HOME/dir.sh https://raw.githubusercontent.com/emailforos/raspi-recovery/main/dir.sh
-sh ./dir.sh
+bash dir.sh
 sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
 cd $HOME/docker
