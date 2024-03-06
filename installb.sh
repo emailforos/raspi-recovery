@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "\n*** INSTALANDO DOCKER ***\n"
 # https://docs.docker.com/engine/install/debian/#install-using-the-repository
 sudo apt-get update -y
