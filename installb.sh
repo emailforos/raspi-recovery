@@ -16,15 +16,25 @@ echo "\n*** Instalando paquetes ***\n"
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo groupadd docker
 sudo usermod -aG docker ${USER}
-docker compose --version
+docker compose version
 echo "\n*** Creando carpetas para los contenedores ***\n"
 cd $HOME
 wget -O $HOME/dir.sh https://raw.githubusercontent.com/emailforos/raspi-recovery/main/dir.sh
 bash dir.sh
 sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
-cd $HOME/docker
-git clone https://github.com/emailforos/contenedores.git
+cd $HOME/docker/compose/domotica
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/domotica/docker-compose.yml
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/domotica/env
+cd $HOME/docker/compose/sistema
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/sistema/docker-compose.yml
+wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/sistema/env
+cd $HOME/docker/compose/media
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/docker-compose.yml
+wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/env
+cd $HOME/docker/compose/nube
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
+wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
 echo "\n*** Creando ficheros para filebrowser ***\n"
 wget -O $HOME/docker/filebrowser/.filebrowser.json https://raw.githubusercontent.com/filebrowser/filebrowser/master/docker/root/defaults/settings.json
 touch $HOME/docker/filebrowser/filebrowser.db
