@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/medi
 wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/env
 cd $HOME/docker/compose/nube
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
-wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
+wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/env
 cd $HOME
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/actualizar.sh
 echo "\n*** Creando ficheros para filebrowser ***\n"
