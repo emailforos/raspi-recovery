@@ -74,13 +74,13 @@ sudo apt update && sudo apt install samba samba-common -y
 sudo wget -O /etc/samba/smb.conf https://raw.githubusercontent.com/emailforos/raspi-recovery/main/samba/smb.conf
 sudo smbpasswd -a ${USER}
 sudo service smbd restart
-echo "\n*** FIN - ¡REINICIA LA RASPI! ***\n" 
+echo 
+echo "QUEDARIA entrar en cada carpeta de docker/compose y modificar cada uno de los .env para cambiar las contraseñas y valores por defecto a los tuyos"
+echo 
 read -p "REINICIAMOS la RASPI? [S/s]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Ss]$ ]]
 then
-    echo 
-    echo "QUEDARIA entrar en cada carpeta de docker/compose y modificar cada uno de los .env para cambiar las contraseñas y valores por defecto a los tuyos"
-    echo 
+    
     sudo reboot now
 fi
