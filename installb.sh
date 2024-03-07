@@ -25,16 +25,18 @@ sudo chown ${USER}:${USER} -R *
 echo "\n*** Creando ficheros .yml docker-compose ***\n"
 cd $HOME/docker/compose/domotica
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/domotica/docker-compose.yml
-wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/domotica/env
+wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/domotica/env
 cd $HOME/docker/compose/sistema
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/sistema/docker-compose.yml
-wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/sistema/env
+wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/sistema/env
 cd $HOME/docker/compose/media
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/docker-compose.yml
-wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/env
+wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/media/env
 cd $HOME/docker/compose/nube
 wget https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
-wget .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
+wget -O .env https://raw.githubusercontent.com/emailforos/contenedores/main/compose/nube/docker-compose.yml
+cd $HOME
+wget https://raw.githubusercontent.com/emailforos/contenedores/main/actualizar.sh
 echo "\n*** Creando ficheros para filebrowser ***\n"
 wget -O $HOME/docker/filebrowser/.filebrowser.json https://raw.githubusercontent.com/filebrowser/filebrowser/master/docker/root/defaults/settings.json
 touch $HOME/docker/filebrowser/filebrowser.db
@@ -73,3 +75,12 @@ sudo wget -O /etc/samba/smb.conf https://raw.githubusercontent.com/emailforos/ra
 sudo smbpasswd -a ${USER}
 sudo service smbd restart
 echo "\n*** FIN - ¡REINICIA LA RASPI! ***\n" 
+read -p "REINICIAMOS la RASPI? [S/s]" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Ss]$ ]]
+then
+    echo 
+    echo "QUEDARIA entrar en cada carpeta de docker/compose y modificar cada uno de los .env para cambiar las contraseñas y valores por defecto a los tuyos"
+    echo 
+    sudo reboot now
+fi
